@@ -86,7 +86,6 @@ def cli():
 
     try:
         if isdir(path_file):
-            print(get_path_abs(path_file))
             read_files_from_folder(path_file)
         else:
             rsize(path_file)

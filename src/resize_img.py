@@ -1,4 +1,5 @@
-#!e
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 from os.path import sep, isdir, isfile
 from os import listdir

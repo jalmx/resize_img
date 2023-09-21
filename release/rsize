@@ -1,4 +1,4 @@
-#!e
+#!/usr/bin/env python
 _A='extension'
 from os.path import sep,isdir,isfile
 from os import listdir
@@ -30,7 +30,7 @@ def cli():
 	A=argv[1]
 	if A=='--help':print(HELP);exit(0)
 	try:
-		if isdir(A):print(get_path_abs(A));read_files_from_folder(A)
+		if isdir(A):read_files_from_folder(A)
 		else:rsize(A)
 	except Exception as B:print(B);print(HELP);exit(1)
 	exit(0)

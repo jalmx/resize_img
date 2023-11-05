@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from os.path import sep, isdir, isfile
+import fnmatch
 from os import listdir
+from os.path import sep, isdir
 from pathlib import Path
 from sys import argv, exit
+
 from PIL import Image
-import fnmatch
 
 HELP = """
 Script to resize images to 1000px height, from folder or one file, support PNG, JPEG
@@ -19,6 +20,8 @@ HOW TO USE:
     
 If you want to change something, you have to modify the script
 
+Develop by Xizuth
+Repo: https://github.com/jalmx/resize_img
 """
 
 
@@ -38,14 +41,15 @@ def get_name(full_path: str) -> dict:
     return {"name": name.split(".")[0],
             "extension": name.split(".")[-1]}
 
-def search_type(name_file:str)-> bool:
 
+def search_type(name_file: str) -> bool:
     extensions = ["png", "jpeg", "jpg"]
 
     for ext in extensions:
         if fnmatch.fnmatch(name_file, f"*.{ext}"):
             return True
     return False
+
 
 def read_files_from_folder(path):
     dir_list = listdir(path)
